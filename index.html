@@ -75,7 +75,6 @@
         }
 
         /* --- HEADER --- */
-        /* --- HEADER --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -90,12 +89,12 @@
 
         .logo {
             font-size: 1.4rem;
-            font-weight: 700;
+            font-weight: 1000;
             color: var(--primary);
             letter-spacing: 1px;
-            padding: 9px 20px;
+            padding: 10px 20px;
             display: inline-block;
-            border: 2px solid var(--primary);
+            border: 0px solid var(--primary);
             border-radius: 4px;
             text-transform: uppercase;
         }
@@ -906,7 +905,7 @@
 
             /* Esconde as bolinhas se estiverem atrapalhando no mobile muito pequeno */
             .slider-dots {
-                bottom: 15px;
+                bottom: 100px;
             }
         }
 
@@ -916,7 +915,7 @@
             text-rendering: optimizeLegibility;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 400px) {
 
             /* Faz a seção inicial crescer para caber o texto no celular */
             .hero {
@@ -961,7 +960,7 @@
 
             /* Ajuste da imagem do Dr. Daniel no mobile */
             .about-img {
-                height: 400px !important;
+                height: 200px !important;
                 margin-top: 30px;
                 cursor: pointer;
             }
@@ -1023,14 +1022,14 @@
         /* Ajuste apenas para quando a tela começar a apertar o menu */
         @media (max-width: 1024px) {
             header {
-                padding: 10px 3%;
+                padding: 10px 5%;
                 /* Diminui as margens laterais para ganhar espaço */
             }
 
             .logo {
                 font-size: 1.1rem;
                 /* Diminui o logo apenas em telas menores */
-                padding: 5px 12px;
+                padding: 10px 12px;
                 border-width: 1px;
                 /* Borda mais fina para não pesar */
             }
@@ -1405,6 +1404,8 @@
             const nav = document.querySelector('#mainNav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
+
+        
 
 
 
