@@ -1121,48 +1121,42 @@
     <div class="bg-beige">
         <section class="section" id="about">
             <div class="about-grid">
-                <div class="about-img">
-                    <div class="about-img-overlay">
+                <div class="about-img" onclick="toggleAbout()">
+                    <div class="about-img-overlay" id="formacao-overlay">
                         <h5>Formação Acadêmica</h5>
-
-                        <br>Direito: Graduado pelo UniCEUB (2017).
-                        </br>
-
-                        <br>Teologia: Graduado pela FACETEN (2010).
-                        </br>
-
-                        <br>Especialização: Pós-graduado em Direito e Processo Previdenciário.
-                        </br>
-
-                        <br>Expertise Imobiliária: Perito Imobiliário (CNAI nº 35.359/2021).
-                        </br>
-
+                        <p>Direito: Graduado pelo UniCEUB (2017).</p>
+                        <p>Teologia: Graduado pela FACETEN (2010).</p>
+                        <p>Especialização: Pós-graduado em Direito e Processo Previdenciário.</p>
+                        <p>Expertise Imobiliária: Perito Imobiliário (CNAI nº 35.359/2021).</p>
                     </div>
-                </div>
-                <div class="about-text" style="text-align: center;">
-                    <h4>APRESENTAÇÃO</h4>
-                    <h3>Quem Somos</h3>
-                    <div class="separator"
-                        style="margin: 0 auto 25px auto; width: 50px; height: 2px; background-color: #C19E67;"></div>
-
-                    <p style="text-align: justify; margin-bottom: 20px;">
-                        O <strong>D.R.C Advogados</strong> é um escritório sediado em Brasília, especializado na defesa
-                        técnica e estratégica dos interesses de seus clientes. Atuamos com ética, transparência e rigor
-                        jurídico, oferecendo soluções precisas e atendimento verdadeiramente personalizado.
-                    </p>
-
-                    <h3 style="font-size: 1.2rem; color: #C19E67; margin-top: 30px;">Nossa Essência</h3>
-                    <br>
-
-                    <p style="text-align: justify;">
-                        Fundado pelo advogado <strong>Dr. Daniel Rodrigues Cardoso</strong>, o escritório nasceu com a
-                        missão de entregar uma advocacia moderna, humanizada e acessível. Buscamos superar a burocracia
-                        tradicional, sem abrir mão da excelência técnica, da responsabilidade profissional e do respeito
-                        às instituições.
-                    </p>
                 </div>
             </div>
         </section>
+    </div>
+    <div class="about-text" style="text-align: center;">
+        <h4>APRESENTAÇÃO</h4>
+        <h3>Quem Somos</h3>
+        <div class="separator" style="margin: 0 auto 25px auto; width: 50px; height: 2px; background-color: #C19E67;">
+        </div>
+
+        <p style="text-align: justify; margin-bottom: 20px;">
+            O <strong>D.R.C Advogados</strong> é um escritório sediado em Brasília, especializado na defesa
+            técnica e estratégica dos interesses de seus clientes. Atuamos com ética, transparência e rigor
+            jurídico, oferecendo soluções precisas e atendimento verdadeiramente personalizado.
+        </p>
+
+        <h3 style="font-size: 1.2rem; color: #C19E67; margin-top: 30px;">Nossa Essência</h3>
+        <br>
+
+        <p style="text-align: justify;">
+            Fundado pelo advogado <strong>Dr. Daniel Rodrigues Cardoso</strong>, o escritório nasceu com a
+            missão de entregar uma advocacia moderna, humanizada e acessível. Buscamos superar a burocracia
+            tradicional, sem abrir mão da excelência técnica, da responsabilidade profissional e do respeito
+            às instituições.
+        </p>
+    </div>
+    </div>
+    </section>
     </div>
 
     <section class="contact-section" id="contact">
@@ -1239,6 +1233,19 @@
                 card.classList.toggle('active');
             });
         });
+    </script>
+
+    <script>
+        function mostrarFormacao() {
+            var x = document.getElementById("formacao-academica");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                // Efeito de rolagem suave para garantir que o usuário veja o texto
+                x.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
 
     <script>
