@@ -1019,7 +1019,7 @@
             }
         }
 
-        /* Ajuste apenas para quando a tela começar a apertar o menu */
+        /* LOGO --- Ajuste apenas para quando a tela começar a apertar o menu */
         @media (max-width: 1024px) {
             header {
                 padding: 10px 5%;
@@ -1044,33 +1044,140 @@
                 /* Letra do menu levemente menor */
             }
         }
+
+        .logo-container {
+            padding: 10px;
+            background-color: #fdfaf5;
+            /* Cor de fundo do seu print */
+            display: inline-block;
+        }
+
+        .logo-main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: 'Playfair Display', serif;
+            /* Sugestão de fonte elegante */
+            color: #4a3f35;
+            /* Um marrom escuro sofisticado */
+        }
+
+        .initials {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .divider {
+            width: 109px;
+            height: 2px;
+            background-color: #c5a059;
+            /* Tom dourado/bronze moderno */
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            /* Fonte moderna para o subtítulo */
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #c5a059;
+            text-transform: uppercase;
+        }
+
+        /*MENU PRINCIPAL*/
+
+        :root {
+            --cor-primaria: #c5a059;
+            /* Dourado/Bronze */
+            --cor-texto: #332d28;
+            --fundo: #fdfaf5;
+        }
+
+        .header-premium {
+            background-color: var(--fundo);
+            padding: 20px 5%;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+
+        /* Estilo do Menu */
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Botão de Destaque para Conversão */
+        .btn-contato {
+            border: 1px solid var(--cor-primaria);
+            padding: 10px 20px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contato:hover {
+            background-color: var(--cor-primaria);
+            color: white !important;
+        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            D.R.C
-            <span>ADVOGADOS</span>
-        </div>
+    <header class="header-premium">
+        <div class="container">
+            <div class="logo-container">
+                <a href="#home" class="logo-main" style="text-decoration: none;">
+                    <span class="initials">D.R.C</span>
+                    <span class="divider-line"></span>
+                    <span class="subtitle">ADVOGADOS</span>
+                </a>
+            </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
 
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#atuacao">Atuação</a></li>
-                <li><a href="#escritorio">O Escritório</a></li>
-                <li><a href="#contato" class="btn-contato">Contato</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">INÍCIO</a></li>
+                    <li><a href="#services" class="nav-link">ATUAÇÃO</a></li>
+                    <li><a href="#about" class="nav-link">O ESCRITÓRIO</a></li>
+                    <li><a href="#contact" class="nav-link btn-contato">CONTATO</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
     <section class="hero" id="home">
         <div class="slide active"
             style="background-image: url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
@@ -1405,7 +1512,7 @@
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
 
-        
+
 
 
 
@@ -1416,4 +1523,3 @@
 </body>
 
 </html>
-
