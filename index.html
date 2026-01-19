@@ -75,17 +75,17 @@
         }
 
         /* --- HEADER --- */
+        /* --- HEADER --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 10px 3%;
             background: var(--light);
             box-shadow: 0 2px 15px rgba(74, 64, 58, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(74, 64, 58, 0.1);
         }
 
         .logo {
@@ -93,7 +93,7 @@
             font-weight: 700;
             color: var(--primary);
             letter-spacing: 1px;
-            padding: 8px 20px;
+            padding: 9px 20px;
             display: inline-block;
             border: 2px solid var(--primary);
             border-radius: 4px;
@@ -103,22 +103,34 @@
         .logo span {
             color: var(--accent);
             font-weight: 400;
+            display: block;
+            font-size: 0.7rem;
         }
 
+        /* --- NAVEGAÇÃO --- */
         nav ul {
             display: flex;
-            gap: 30px;
+            gap: 15px;
+            /* Espaço entre os itens do menu */
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
-        nav a {
+        nav ul li a {
+            text-decoration: none;
             color: var(--primary);
             font-weight: 600;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            white-space: nowrap;
+            /* Impede a quebra de "O ESCRITÓRIO" */
+            transition: 0.3s;
         }
 
-        nav a:hover {
+        nav ul li a:hover {
             color: var(--accent);
         }
 
@@ -313,50 +325,86 @@
             border-radius: 2px;
         }
 
-        .service-list {
+        /* Estilo Base do Item */
+        .service-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
+            margin-bottom: 15px;
+            /* Espaçamento entre os botões */
         }
 
-        .service-item {
-            background-color: var(--white);
-            padding: 25px 30px;
-            border: 1px solid rgba(74, 64, 58, 0.1);
-            border-radius: 6px;
+        /* Título sempre visível */
+        .service-title {
+            font-weight: bold;
+            color: #C19E67;
+            display: block;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Descrição (O segredo do efeito) */
+        /* 1. Estado Inicial: Esconde o texto */
+        .service-description {
+            display: block !important;
+            /* Mantém o bloco mas controla a altura */
+            max-height: 0;
             overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+            margin: 0;
+            padding: 0 15px;
+            pointer-events: none;
+            /* Evita que o texto interfira no clique antes de abrir */
+        }
+
+        /* 2. DESKTOP: Faz aparecer ao passar o mouse (Hover) */
+        @media (min-width: 1024px) {
+            .service-item:hover {
+                background-color: #fcfcfc !important;
+                border-color: #C19E67 !important;
+            }
+
+            .service-item:hover .service-description {
+                max-height: 500px !important;
+                /* Força a abertura no mouse */
+                opacity: 1 !important;
+                padding-top: 15px !important;
+                padding-bottom: 10px !important;
+            }
+        }
+
+        /* 3. MOBILE: Faz aparecer ao clicar (via classe .active do JS) */
+        .service-item.active .service-description {
+            max-height: 500px !important;
+            opacity: 1 !important;
+            padding-top: 15px !important;
+            padding-bottom: 10px !important;
+        }
+
+        /* 4. Estilo visual dos cards (ajustado para Mobile e Desktop) */
+        .service-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 20px;
             cursor: pointer;
-            transition: 0.4s;
+            list-style: none;
+            transition: 0.3s;
         }
 
         .service-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary);
+            font-weight: bold;
+            color: #42392a;
             text-align: center;
             display: block;
-        }
-
-        .service-description {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: 0.6s ease;
-            text-align: justify;
-        }
-
-        .service-item:hover {
-            background-color: var(--bg-beige);
-            border-color: var(--accent);
-        }
-
-        .service-item:hover .service-description {
-            max-height: 500px;
-            opacity: 1;
-            margin-top: 15px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
         }
 
         .bg-beige {
@@ -951,22 +999,77 @@
                 transform: translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            .areas-minimal p {
+                font-size: 1rem;
+                display: flex;
+                flex-direction: column;
+                /* Faz os nomes ficarem um abaixo do outro */
+                gap: 15px;
+                /* Espaçamento confortável para o toque no celular */
+                align-items: center;
+            }
+
+            .areas-minimal .divider {
+                display: block !important;
+                /* Faz o texto aparecer */
+                color: var(--accent);
+                /* Mantém a cor dourada/bronze */
+                margin: 0;
+            }
+        }
+
+        /* Ajuste apenas para quando a tela começar a apertar o menu */
+        @media (max-width: 1024px) {
+            header {
+                padding: 10px 3%;
+                /* Diminui as margens laterais para ganhar espaço */
+            }
+
+            .logo {
+                font-size: 1.1rem;
+                /* Diminui o logo apenas em telas menores */
+                padding: 5px 12px;
+                border-width: 1px;
+                /* Borda mais fina para não pesar */
+            }
+
+            nav ul {
+                gap: 10px;
+                /* Aproxima os itens do menu */
+            }
+
+            nav ul li a {
+                font-size: 0.85rem;
+                /* Letra do menu levemente menor */
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <div class="logo">D.R.C <span>ADVOGADOS</span></div>
-        <nav id="mainNav">
+        <div class="logo">
+            D.R.C
+            <span>ADVOGADOS</span>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
             <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#services">Atuação</a></li>
-                <li><a href="#about">O Escritório</a></li>
-                <li><a href="#contact" class="cta-header">Contato</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#atuacao">Atuação</a></li>
+                <li><a href="#escritorio">O Escritório</a></li>
+                <li><a href="#contato" class="btn-contato">Contato</a></li>
             </ul>
         </nav>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     </header>
 
     <section class="hero" id="home">
@@ -1124,39 +1227,51 @@
                 <div class="about-img" onclick="toggleAbout()">
                     <div class="about-img-overlay" id="formacao-overlay">
                         <h5>Formação Acadêmica</h5>
-                        <p>Direito: Graduado pelo UniCEUB (2017).</p>
-                        <p>Teologia: Graduado pela FACETEN (2010).</p>
-                        <p>Especialização: Pós-graduado em Direito e Processo Previdenciário.</p>
-                        <p>Expertise Imobiliária: Perito Imobiliário (CNAI nº 35.359/2021).</p>
+
+                        <br>Direito: Graduado pelo UniCEUB (2017).
+                        </br>
+
+                        <br>Teologia: Graduado pela FACETEN (2010).
+                        </br>
+
+                        <br>Especialização: Pós-graduado em Direito e Processo Previdenciário.
+                        </br>
+
+                        <br>Expertise Imobiliária: Perito Imobiliário (CNAI nº 35.359/2021).
+                        </br>
+
                     </div>
+                </div>
+                <div class="about-text" style="text-align: center;">
+                    <h4>APRESENTAÇÃO</h4>
+                    <h3>Quem Somos</h3>
+                    <div class="separator"
+                        style="margin: 0 auto 25px auto; width: 50px; height: 2px; background-color: #C19E67;">
+                    </div>
+
+                    <p style="text-align: justify; margin-bottom: 20px;">
+                        O <strong>D.R.C Advogados</strong> é um escritório sediado em Brasília, especializado na
+                        defesa
+                        técnica e estratégica dos interesses de seus clientes. Atuamos com ética, transparência e
+                        rigor
+                        jurídico, oferecendo soluções precisas e atendimento verdadeiramente personalizado.
+                    </p>
+
+                    <h3 style="font-size: 1.2rem; color: #C19E67; margin-top: 30px;">Nossa Essência</h3>
+                    <br>
+
+                    <p style="text-align: justify;">
+                        Fundado pelo advogado <strong>Dr. Daniel Rodrigues Cardoso</strong>, o escritório nasceu com
+                        a
+                        missão de entregar uma advocacia moderna, humanizada e acessível. Buscamos superar a
+                        burocracia
+                        tradicional, sem abrir mão da excelência técnica, da responsabilidade profissional e do
+                        respeito
+                        às instituições.
+                    </p>
                 </div>
             </div>
         </section>
-    </div>
-    <div class="about-text" style="text-align: center;">
-        <h4>APRESENTAÇÃO</h4>
-        <h3>Quem Somos</h3>
-        <div class="separator" style="margin: 0 auto 25px auto; width: 50px; height: 2px; background-color: #C19E67;">
-        </div>
-
-        <p style="text-align: justify; margin-bottom: 20px;">
-            O <strong>D.R.C Advogados</strong> é um escritório sediado em Brasília, especializado na defesa
-            técnica e estratégica dos interesses de seus clientes. Atuamos com ética, transparência e rigor
-            jurídico, oferecendo soluções precisas e atendimento verdadeiramente personalizado.
-        </p>
-
-        <h3 style="font-size: 1.2rem; color: #C19E67; margin-top: 30px;">Nossa Essência</h3>
-        <br>
-
-        <p style="text-align: justify;">
-            Fundado pelo advogado <strong>Dr. Daniel Rodrigues Cardoso</strong>, o escritório nasceu com a
-            missão de entregar uma advocacia moderna, humanizada e acessível. Buscamos superar a burocracia
-            tradicional, sem abrir mão da excelência técnica, da responsabilidade profissional e do respeito
-            às instituições.
-        </p>
-    </div>
-    </div>
-    </section>
     </div>
 
     <section class="contact-section" id="contact">
@@ -1219,16 +1334,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script>
-        // Seleciona todos os cards de serviço
         const cards = document.querySelectorAll('.service-item');
 
         cards.forEach(card => {
             card.addEventListener('click', () => {
-                // Fecha todos os outros que estiverem abertos (opcional)
+                // Fecha todos os outros cards para não poluir a tela do celular
                 cards.forEach(other => {
                     if (other !== card) other.classList.remove('active');
                 });
-
                 // Abre ou fecha o card clicado
                 card.classList.toggle('active');
             });
