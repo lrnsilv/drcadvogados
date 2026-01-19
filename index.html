@@ -779,56 +779,93 @@
         /* --- AJUSTES DE RESPONSIVIDADE (MOBILE, TABLET, DESKTOP) --- */
 
         /* --- AJUSTE UNIFICADO PARA MOBILE --- */
-        @media screen and (max-width: 1024px) {
+        /* 1. TRAVA DE SEGURANÇA CONTRA TELA BRANCA LATERAL */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-            /* 1. Remove o espaço exagerado no topo e fundo do banner */
-            .hero,
+        /* 2. AJUSTE DO HERO PARA NÃO VAZAR */
+        .hero {
+            position: relative;
+            height: 100vh;
+            /* Aumentamos para 100 no mobile para caber o texto */
+            width: 100vw;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* 3. BLOCO MOBILE REVISADO (O SEGREDO ESTÁ AQUI) */
+        @media screen and (max-width: 768px) {
+
+            /* Impede que o conteúdo empurre a tela para o lado */
+            * {
+                max-width: 100vw;
+            }
+
             .hero-content {
-                padding-top: 70px !important;
-                /* Evita que o texto comece muito baixo */
-                padding-bottom: 0 !important;
-                /* Remove o 'vazio' embaixo */
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
+                margin-left: 0 !important;
+                padding: 0 20px !important;
+                width: 100% !important;
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
             }
 
-            /* 2. SUBIR O BOTÃO: Diminui a distância entre o texto e o botão */
-            .btn-consultar,
-            .btn-liberar,
-            .hero .btn {
-                margin-top: 10px !important;
-                /* Puxa o botão para perto do texto */
-                margin-bottom: 5px !important;
-                /* Diminui o espaço abaixo dele */
-                width: 85% !important;
-                /* Tamanho ideal para Android/iPhone */
-                margin-left: auto !important;
-                margin-right: auto !important;
+            .hero-content h1 {
+                font-size: 1.3rem !important;
+                /* Menor para não quebrar */
+                line-height: 1.3 !important;
+                margin-bottom: 15px !important;
+                width: 100%;
+                word-wrap: break-word;
             }
 
-            /* 3. SUBIR AS BOLINHAS: Tira elas do rodapé e cola no botão */
-            /* Este código atinge as classes mais comuns de bolinhas (slick/swiper) */
-            .slick-dots,
-            .swiper-pagination,
-            .dots-container {
-                position: relative !important;
-                /* Faz elas pararem de flutuar no fundo */
-                bottom: 0 !important;
-                /* Zera a distância do fundo */
-                margin-top: 5px !important;
-                /* Cola logo abaixo do botão */
-                line-height: 1 !important;
-            }
-
-            /* 4. AJUSTE DE TEXTO: Faz as leis ocuparem menos espaço vertical */
-            .hero-list li,
+            .hero-text,
             .hero-content p {
-                margin-bottom: 8px !important;
-                /* Espreme as linhas de texto */
-                line-height: 1.2 !important;
-                /* Diminui a altura da linha */
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+                text-align: center !important;
+                /* Centralizado no mobile evita buracos */
+                margin-bottom: 20px !important;
             }
+
+            .hero-list {
+                display: inline-block;
+                text-align: left;
+                margin: 0 auto 20px auto !important;
+                max-width: 280px;
+            }
+
+            .hero-list li {
+                font-size: 0.8rem !important;
+                padding-left: 10px !important;
+                border-left: 2px solid var(--accent) !important;
+                margin-bottom: 8px !important;
+            }
+
+            .btn-white {
+                width: 100% !important;
+                padding: 15px !important;
+                font-size: 0.85rem !important;
+                display: flex !important;
+                justify-content: center;
+            }
+
+            /* Esconde as bolinhas se estiverem atrapalhando no mobile muito pequeno */
+            .slider-dots {
+                bottom: 15px;
+            }
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
     </style>
 </head>
@@ -1147,6 +1184,12 @@
             const nav = document.querySelector('#mainNav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
+
+
+
+
+
+
     </script>
 </body>
 
