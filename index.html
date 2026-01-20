@@ -94,8 +94,14 @@
             max-width: 1400px;
             /* Largura máxima do cabeçalho */
             margin: 0 auto;
-            padding: 15px 5%;
+            padding: 10px 2%;
             /* Espaçamento lateral */
+        }
+
+        /* A Logo no canto esquerdo */
+        .logo-container {
+            flex: 0 0 auto;
+            /* Impede que a logo cresça ou saia do lugar */
         }
 
         /* Estilo da Logo (Lado Esquerdo) */
@@ -1160,10 +1166,62 @@
             background-color: var(--cor-primaria);
             color: white !important;
         }
+
+        /* Ajuste para empurrar a logo para a ponta esquerda */
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 2%;
+            /* Diminuir o padding faz a logo encostar mais na borda */
+        }
+
+        .logo-container {
+            margin-left: 0;
+            /* Garante que ela fique no início da linha */
+        }
+
+        /* Estilo para o menu sanduíche aparecer no Mobile */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block !important;
+                cursor: pointer;
+                font-size: 25px;
+                color: #4a3f35;
+            }
+
+            /* Esconde o menu e prepara a lista para quando for clicado */
+            #nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fdfaf5;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            /* Classe que o JavaScript vai ativar para mostrar as informações */
+            #nav-menu.active {
+                display: flex !important;
+            }
+
+            #nav-menu ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
 
     <header class="header-premium">
         <div class="container">
@@ -1522,6 +1580,22 @@
             const nav = document.querySelector('#mainNav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
+
+
+        // Seleciona o botão sanduíche e o menu
+        const btnMobile = document.querySelector('.menu-toggle');
+        const menuNav = document.querySelector('#nav-menu');
+
+        btnMobile.addEventListener('click', function () {
+            // Acrescenta ou remove a classe 'active' ao clicar
+            menuNav.classList.toggle('active');
+
+            // Opcional: troca o ícone para um 'X' ao abrir
+            const icon = btnMobile.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
 
 
 
