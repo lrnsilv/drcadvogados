@@ -1238,7 +1238,8 @@
             </div>
 
             <nav class="nav-container">
-                <ul class="nav-menu">
+
+                <ul class="nav-menu" id="service-list">
                     <li><a href="#home" class="nav-link">INÍCIO</a></li>
                     <li><a href="#services" class="nav-link">ATUAÇÃO</a></li>
                     <li><a href="#about" class="nav-link">O ESCRITÓRIO</a></li>
@@ -1340,59 +1341,59 @@
             </div>
         </section>
 
-        <ul class="service-list">
 
-            <li class="service-item">
-                <span class="service-title">Contencioso Estratégico e Consultoria Preventiva</span>
-                <p class="service-description">
-                    O escritório atua no contencioso estratégico e na consultoria preventiva, conduzindo processos
-                    administrativos e judiciais em todas as instâncias e oferecendo consultoria cível, tributária,
-                    trabalhista e previdenciária para prevenir litígios e reduzir riscos.
-                </p>
-            </li>
 
-            <li class="service-item">
-                <span class="service-title">Cível / Direito Bancário</span>
-                <p class="service-description">
-                    Assessoria jurídica especializada em Direito Bancário, atuando no levantamento e solicitação de
-                    suspensão de dívidas, apuração de fraudes, contestação de descontos indevidos e defesa em execuções
-                    de contratos bancários.
-                </p>
-            </li>
+        <li class="service-item">
+            <span class="service-title">Contencioso Estratégico e Consultoria Preventiva</span>
+            <p class="service-description">
+                O escritório atua no contencioso estratégico e na consultoria preventiva, conduzindo processos
+                administrativos e judiciais em todas as instâncias e oferecendo consultoria cível, tributária,
+                trabalhista e previdenciária para prevenir litígios e reduzir riscos.
+            </p>
+        </li>
 
-            <li class="service-item">
-                <span class="service-title">Cível / Inventário</span>
-                <p class="service-description">
-                    Atuação em inventários extrajudiciais e judiciais, oferecendo orientação completa na organização
-                    patrimonial, formalização da partilha e resolução de conflitos familiares com agilidade e segurança
-                    jurídica.
-                </p>
-            </li>
+        <li class="service-item">
+            <span class="service-title">Cível / Direito Bancário</span>
+            <p class="service-description">
+                Assessoria jurídica especializada em Direito Bancário, atuando no levantamento e solicitação de
+                suspensão de dívidas, apuração de fraudes, contestação de descontos indevidos e defesa em execuções
+                de contratos bancários.
+            </p>
+        </li>
 
-            <li class="service-item">
-                <span class="service-title">Direito Previdenciário</span>
-                <p class="service-description">
-                    Representação completa em pedidos de aposentadorias, pensões, revisões de benefícios e auxílios
-                    junto ao INSS, garantindo o suporte necessário para a obtenção de direitos previdenciários.
-                </p>
-            </li>
+        <li class="service-item">
+            <span class="service-title">Cível / Inventário</span>
+            <p class="service-description">
+                Atuação em inventários extrajudiciais e judiciais, oferecendo orientação completa na organização
+                patrimonial, formalização da partilha e resolução de conflitos familiares com agilidade e segurança
+                jurídica.
+            </p>
+        </li>
 
-            <li class="service-item">
-                <span class="service-title">Direito Trabalhista</span>
-                <p class="service-description">
-                    Assessoria em conflitos entre empregados e empregadores, abrangendo verbas rescisórias, horas
-                    extras, assédio moral, acidentes de trabalho e consultoria preventiva para redução de passivo
-                    trabalhista.
-                </p>
-            </li>
+        <li class="service-item">
+            <span class="service-title">Direito Previdenciário</span>
+            <p class="service-description">
+                Representação completa em pedidos de aposentadorias, pensões, revisões de benefícios e auxílios
+                junto ao INSS, garantindo o suporte necessário para a obtenção de direitos previdenciários.
+            </p>
+        </li>
 
-            <li class="service-item">
-                <span class="service-title">Isenções e Recuperação de Crédito Tributário</span>
-                <p class="service-description">
-                    Especialidade em isenção de Imposto de Renda para portadores de doenças graves (Lei nº 7.713/88) e
-                    recuperação de valores pagos indevidamente nos últimos cinco anos para aposentados e pensionistas.
-                </p>
-            </li>
+        <li class="service-item">
+            <span class="service-title">Direito Trabalhista</span>
+            <p class="service-description">
+                Assessoria em conflitos entre empregados e empregadores, abrangendo verbas rescisórias, horas
+                extras, assédio moral, acidentes de trabalho e consultoria preventiva para redução de passivo
+                trabalhista.
+            </p>
+        </li>
+
+        <li class="service-item">
+            <span class="service-title">Isenções e Recuperação de Crédito Tributário</span>
+            <p class="service-description">
+                Especialidade em isenção de Imposto de Renda para portadores de doenças graves (Lei nº 7.713/88) e
+                recuperação de valores pagos indevidamente nos últimos cinco anos para aposentados e pensionistas.
+            </p>
+        </li>
         </ul>
     </section>
 
@@ -1582,20 +1583,6 @@
         });
 
 
-        // Seleciona o botão sanduíche e o menu
-        const btnMobile = document.querySelector('.menu-toggle');
-        const menuNav = document.querySelector('#nav-menu');
-
-        btnMobile.addEventListener('click', function () {
-            // Acrescenta ou remove a classe 'active' ao clicar
-            menuNav.classList.toggle('active');
-
-            // Opcional: troca o ícone para um 'X' ao abrir
-            const icon = btnMobile.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    </script>
 
 
 
