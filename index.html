@@ -75,79 +75,90 @@
         }
 
         /* --- HEADER --- */
-        /* Container que segura tudo */
-        .header-principal {
-            background-color: #fdfaf5;
-            /* Fundo creme */
-            width: 100%;
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 3%;
+            background: var(--light);
+            box-shadow: 0 2px 15px rgba(74, 64, 58, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 2%;
         }
 
-        .header-container {
+        /*LOGO PRINCIPAL*/
+
+        .logo {
             display: flex;
-            justify-content: space-between;
-            /* LOGO NA ESQUERDA, MENU NA DIREITA */
             align-items: center;
-            max-width: 1400px;
-            /* Largura máxima do cabeçalho */
-            margin: 0 auto;
-            padding: 10px 2%;
-            /* Espaçamento lateral */
+            gap: 18px;
         }
 
-        /* A Logo no canto esquerdo */
-        .logo-container {
-            flex: 0 0 auto;
-            /* Impede que a logo cresça ou saia do lugar */
-        }
-
-        /* Estilo da Logo (Lado Esquerdo) */
-        .logo-site {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .initials {
+        .logo-drc {
+            font-family: 'Playfair Display', serif;
+            color: #b08a4f;
             font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #4a3f35;
-            line-height: 1;
+            /* antes: 32px */
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
-        .divider-logo {
-            width: 100%;
-            height: 2px;
-            background-color: #c5a059;
-            /* Linha dourada */
-            margin: 5px 0;
+        .logo-divider {
+            width: 2px;
+            height: 48px;
+            background-color: #b08a4f;
         }
 
-        .subtitle {
-            font-size: 12px;
-            letter-spacing: 5px;
-            color: #c5a059;
-            text-transform: uppercase;
+        .logo-adv {
+            font-family: 'Playfair Display', serif;
+            color: #1f1f1f;
+            font-size: 28px;
+            letter-spacing: 1px;
+            font-weight: 400;
         }
 
-        /* Estilo do Menu (Lado Direito) */
-        .nav-list {
+        /*AJUSTE LOGO MOBILE(CELULAR)*/
+        @media (max-width: 768px) {
+            .logo-drc {
+                font-size: 22px;
+            }
+
+            .logo-adv {
+                font-size: 24px;
+            }
+
+            .logo-divider {
+                height: 34px;
+            }
+        }
+
+        /* --- NAVEGAÇÃO --- */
+        nav ul {
             display: flex;
-            gap: 25px;
+            gap: 15px;
+            /* Espaço entre os itens do menu */
             list-style: none;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
-        .nav-list li a {
+        nav ul li a {
             text-decoration: none;
-            color: #4a3f35;
-            font-size: 13px;
+            color: var(--primary);
             font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            /* Impede a quebra de "O ESCRITÓRIO" */
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
         }
 
         .cta-header {
@@ -436,7 +447,7 @@
         }
 
         .about-img {
-            background: url('perfil_daniel.png') center top/cover;
+            background: url('perfil_daniel.jpg') center top/cover;
             height: 550px;
             width: 100%;
             border-radius: 8px;
@@ -1036,181 +1047,30 @@
             }
         }
 
-        /* LOGO --- Ajuste apenas para quando a tela começar a apertar o menu */
-        @media (max-width: 1024px) {
-            header {
-                padding: 10px 5%;
-                /* Diminui as margens laterais para ganhar espaço */
-            }
-
-            .logo {
-                font-size: 1.1rem;
-                /* Diminui o logo apenas em telas menores */
-                padding: 10px 12px;
-                border-width: 1px;
-                /* Borda mais fina para não pesar */
-            }
-
-            nav ul {
-                gap: 10px;
-                /* Aproxima os itens do menu */
-            }
-
-            nav ul li a {
-                font-size: 0.85rem;
-                /* Letra do menu levemente menor */
-            }
-        }
-
-        .logo-container {
-            padding: 10px;
-            background-color: #fdfaf5;
-            /* Cor de fundo do seu print */
-            display: inline-block;
-        }
-
-        .logo-main {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            font-family: 'Playfair Display', serif;
-            /* Sugestão de fonte elegante */
-            color: #4a3f35;
-            /* Um marrom escuro sofisticado */
-        }
-
-        .initials {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 4px;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .divider {
-            width: 109px;
-            height: 2px;
-            background-color: #c5a059;
-            /* Tom dourado/bronze moderno */
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            font-family: 'Montserrat', sans-serif;
-            /* Fonte moderna para o subtítulo */
-            font-size: 15px;
-            font-weight: 400;
-            letter-spacing: 6px;
-            color: #c5a059;
-            text-transform: uppercase;
-        }
-
-        /*MENU PRINCIPAL*/
-
-        :root {
-            --cor-primaria: #c5a059;
-            /* Dourado/Bronze */
-            --cor-texto: #332d28;
-            --fundo: #fdfaf5;
-        }
-
-        .header-premium {
-            background-color: var(--fundo);
-            padding: 20px 5%;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-
-
-        /* Estilo do Menu */
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--cor-texto);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--cor-primaria);
-        }
-
-        /* Botão de Destaque para Conversão */
-        .btn-contato {
-            border: 1px solid var(--cor-primaria);
-            padding: 10px 20px;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-contato:hover {
-            background-color: var(--cor-primaria);
-            color: white !important;
-        }
-
-        /* Ajuste para empurrar a logo para a ponta esquerda */
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 2%;
-            /* Diminuir o padding faz a logo encostar mais na borda */
-        }
-
-        .logo-container {
-            margin-left: 0;
-            /* Garante que ela fique no início da linha */
-        }
     </style>
 </head>
 
 <body>
 
-
-    <header class="header-principal">
-        <div class="header-container">
-            <a href="#home" class="logo-site">
-                <span class="initials">D.R.C</span>
-                <span class="divider-logo"></span>
-                <span class="subtitle">ADVOGADOS</span>
-            </a>
-
-            <nav class="nav-principal" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#home">INÍCIO</a></li>
-                    <li><a href="#services">ATUAÇÃO</a></li>
-                    <li><a href="#about">O ESCRITÓRIO</a></li>
-                    <li><a href="#contact" class="btn-contato">CONTATO</a></li>
-                </ul>
-            </nav>
-
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+    <header>
+        <div class="logo">
+            <span class="logo-drc">D.R.C</span>
+            <span class="logo-divider"></span>
+            <span class="logo-adv">ADVOGADOS</span>
         </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#atuacao">Atuação</a></li>
+                <li><a href="#escritorio">O Escritório</a></li>
+                <li><a href="#contato" class="btn-contato">Contato</a></li>
+            </ul>
+        </nav>
     </header>
+
     <section class="hero" id="home">
-        <div class="slide active"
-            style="background-image: url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
+        <div class="slide active" <img src="img_sala.PNG" alt="Girl in a jacket" width="500" height="600">
             <div class="hero-content">
                 <h1>Servidor público do GDF/FEDERAL sem salário por causa de descontos bancários</h1>
                 <p>Empréstimos, cartões de créditos, cheque especial, débitos automáticos consomem
@@ -1301,59 +1161,59 @@
             </div>
         </section>
 
+        <ul class="service-list">
 
+            <li class="service-item">
+                <span class="service-title">Contencioso Estratégico e Consultoria Preventiva</span>
+                <p class="service-description">
+                    O escritório atua no contencioso estratégico e na consultoria preventiva, conduzindo processos
+                    administrativos e judiciais em todas as instâncias e oferecendo consultoria cível, tributária,
+                    trabalhista e previdenciária para prevenir litígios e reduzir riscos.
+                </p>
+            </li>
 
-        <li class="service-item">
-            <span class="service-title">Contencioso Estratégico e Consultoria Preventiva</span>
-            <p class="service-description">
-                O escritório atua no contencioso estratégico e na consultoria preventiva, conduzindo processos
-                administrativos e judiciais em todas as instâncias e oferecendo consultoria cível, tributária,
-                trabalhista e previdenciária para prevenir litígios e reduzir riscos.
-            </p>
-        </li>
+            <li class="service-item">
+                <span class="service-title">Cível / Direito Bancário</span>
+                <p class="service-description">
+                    Assessoria jurídica especializada em Direito Bancário, atuando no levantamento e solicitação de
+                    suspensão de dívidas, apuração de fraudes, contestação de descontos indevidos e defesa em execuções
+                    de contratos bancários.
+                </p>
+            </li>
 
-        <li class="service-item">
-            <span class="service-title">Cível / Direito Bancário</span>
-            <p class="service-description">
-                Assessoria jurídica especializada em Direito Bancário, atuando no levantamento e solicitação de
-                suspensão de dívidas, apuração de fraudes, contestação de descontos indevidos e defesa em execuções
-                de contratos bancários.
-            </p>
-        </li>
+            <li class="service-item">
+                <span class="service-title">Cível / Inventário</span>
+                <p class="service-description">
+                    Atuação em inventários extrajudiciais e judiciais, oferecendo orientação completa na organização
+                    patrimonial, formalização da partilha e resolução de conflitos familiares com agilidade e segurança
+                    jurídica.
+                </p>
+            </li>
 
-        <li class="service-item">
-            <span class="service-title">Cível / Inventário</span>
-            <p class="service-description">
-                Atuação em inventários extrajudiciais e judiciais, oferecendo orientação completa na organização
-                patrimonial, formalização da partilha e resolução de conflitos familiares com agilidade e segurança
-                jurídica.
-            </p>
-        </li>
+            <li class="service-item">
+                <span class="service-title">Direito Previdenciário</span>
+                <p class="service-description">
+                    Representação completa em pedidos de aposentadorias, pensões, revisões de benefícios e auxílios
+                    junto ao INSS, garantindo o suporte necessário para a obtenção de direitos previdenciários.
+                </p>
+            </li>
 
-        <li class="service-item">
-            <span class="service-title">Direito Previdenciário</span>
-            <p class="service-description">
-                Representação completa em pedidos de aposentadorias, pensões, revisões de benefícios e auxílios
-                junto ao INSS, garantindo o suporte necessário para a obtenção de direitos previdenciários.
-            </p>
-        </li>
+            <li class="service-item">
+                <span class="service-title">Direito Trabalhista</span>
+                <p class="service-description">
+                    Assessoria em conflitos entre empregados e empregadores, abrangendo verbas rescisórias, horas
+                    extras, assédio moral, acidentes de trabalho e consultoria preventiva para redução de passivo
+                    trabalhista.
+                </p>
+            </li>
 
-        <li class="service-item">
-            <span class="service-title">Direito Trabalhista</span>
-            <p class="service-description">
-                Assessoria em conflitos entre empregados e empregadores, abrangendo verbas rescisórias, horas
-                extras, assédio moral, acidentes de trabalho e consultoria preventiva para redução de passivo
-                trabalhista.
-            </p>
-        </li>
-
-        <li class="service-item">
-            <span class="service-title">Isenções e Recuperação de Crédito Tributário</span>
-            <p class="service-description">
-                Especialidade em isenção de Imposto de Renda para portadores de doenças graves (Lei nº 7.713/88) e
-                recuperação de valores pagos indevidamente nos últimos cinco anos para aposentados e pensionistas.
-            </p>
-        </li>
+            <li class="service-item">
+                <span class="service-title">Isenções e Recuperação de Crédito Tributário</span>
+                <p class="service-description">
+                    Especialidade em isenção de Imposto de Renda para portadores de doenças graves (Lei nº 7.713/88) e
+                    recuperação de valores pagos indevidamente nos últimos cinco anos para aposentados e pensionistas.
+                </p>
+            </li>
         </ul>
     </section>
 
@@ -1536,18 +1396,11 @@
             }, 6000); // Muda a cada 6 segundos
         }
 
-            const btnMobile = document.getElementById('mobile-menu');
-            const menuNav = document.getElementById('nav-menu');
-
-            btnMobile.addEventListener('click', function() {
-                menuNav.classList.toggle('active');
-            const icon = btnMobile.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        // Menu Mobile Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            const nav = document.querySelector('#mainNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
-    </script>
-
-
 
 
 
