@@ -1180,41 +1180,32 @@
             margin-left: 0;
             /* Garante que ela fique no início da linha */
         }
-
-    
-    
     </style>
 </head>
 
 <body>
 
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
 
-    <header class="header-premium">
-        <div class="container">
-            <div class="logo-container">
-                <a href="#home" class="logo-main" style="text-decoration: none;">
-                    <span class="initials">D.R.C</span>
-                    <span class="divider-line"></span>
-                    <span class="subtitle">ADVOGADOS</span>
-                </a>
-            </div>
+    <header class="header-principal">
+        <div class="header-container">
+            <a href="#home" class="logo-site">
+                <span class="initials">D.R.C</span>
+                <span class="divider-logo"></span>
+                <span class="subtitle">ADVOGADOS</span>
+            </a>
+
+            <nav class="nav-principal" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home">INÍCIO</a></li>
+                    <li><a href="#services">ATUAÇÃO</a></li>
+                    <li><a href="#about">O ESCRITÓRIO</a></li>
+                    <li><a href="#contact" class="btn-contato">CONTATO</a></li>
+                </ul>
+            </nav>
 
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
-
-            <nav class="nav-container">
-
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">INÍCIO</a></li>
-                    <li><a href="#services" class="nav-link">ATUAÇÃO</a></li>
-                    <li><a href="#about" class="nav-link">O ESCRITÓRIO</a></li>
-                    <li><a href="#contact" class="nav-link btn-contato">CONTATO</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
     <section class="hero" id="home">
@@ -1545,11 +1536,16 @@
             }, 6000); // Muda a cada 6 segundos
         }
 
-        // Menu Mobile Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function () {
-            const nav = document.querySelector('#mainNav');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            const btnMobile = document.getElementById('mobile-menu');
+            const menuNav = document.getElementById('nav-menu');
+
+            btnMobile.addEventListener('click', function() {
+                menuNav.classList.toggle('active');
+            const icon = btnMobile.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
+    </script>
 
 
 
