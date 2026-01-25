@@ -1036,11 +1036,16 @@
             }
 
             /* Ajuste da imagem do Dr. Daniel no mobile */
-            .about-img {
-                height: 200px !important;
-                margin-top: 30px;
-                cursor: pointer;
+            @media (max-width: 900px) {
+                .about-img {
+                    background-size: contain !important;
+                    background-position: center top !important;
+                    height: auto !important;
+                    min-height: 320px;
+                }
             }
+
+
         }
 
         /* Garante que o cursor mude para indicar que é clicável */
